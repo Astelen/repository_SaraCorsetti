@@ -110,5 +110,43 @@ else:
      
  
      
- 
 
+###### Esercizio completo slide 89
+
+# Entro in applicazione creando il primo ciclo While true vuoi entrare nel menu'? Si o no, e metto break. Se si, entro nel menu.
+
+risposta = ""
+lista_es89 = []
+
+while True:
+     risposta = input("Vuoi entrare nel menu'? Premi Y o N: ")
+     if risposta.lower() == "n":
+          break
+     elif risposta.lower() == "s":
+     ## ciclo While per inserire un numero. Controllo se il numero e' corretto ed entro nel menu' che ha 5 opzioni (if con 5 casi e un else)
+          while True:
+               numero_es89 = int(input("Inserisci un numero positivo: "))
+               if numero_es89 <= 0:
+                    print("Il numero non e' positivo.")
+               else:
+                    risposta2 = input("Hai inserito il numero ", numero_es89, ". Vuoi cambiarlo? Scegli S o N: ")
+                    if risposta2.lower() == "n": # inserire le opzioni: calcolo numeri pari, stampare numeri dispari, verificare se numero_es89 e. primo
+                         opzione_menu = int(input("Premi: 1 per sommare tutti i numeri pari compresi tra 0 ed il numero ", numero_es89, ", 2 per stampare tutti i numeri dispari compresi tra 0 ed il numero ", numero_es89, "3 per verificare se ", numero_es89, " e' un numero primo. "))
+                         if risposta2 == 1:
+                              for n in range(0, numero_es89, 2):
+                                   print(n=+1)
+                                   
+                         
+                    
+                         
+                         
+                    else:
+                         print("Hai scelto di cambiare il numero")
+     else:
+          print("Scelta non valida.")
+
+# ciclo While per inserire un numero. Controllo se il numero e' corretto ed entro nel menu' che ha 5 opzioni (if con 5 casi e un else)
+
+# Riempio uno alla volta i casi
+
+# Faccio i test
