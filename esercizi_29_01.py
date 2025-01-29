@@ -117,36 +117,58 @@ else:
 
 risposta = ""
 lista_es89 = []
+somma_pari = 0
 
 while True:
-     risposta = input("Vuoi entrare nel menu'? Premi Y o N: ")
+     risposta = input("Vuoi entrare nel menu'? Premi S o N: ")
      if risposta.lower() == "n":
           break
      elif risposta.lower() == "s":
      ## ciclo While per inserire un numero. Controllo se il numero e' corretto ed entro nel menu' che ha 5 opzioni (if con 5 casi e un else)
           while True:
-               numero_es89 = int(input("Inserisci un numero positivo: "))
-               if numero_es89 <= 0:
+                numero_es89 = int(input("Inserisci un numero positivo, o scrivi 9 per uscire dal programma: "))
+                if numero_es89 <= 0:
                     print("Il numero non e' positivo.")
-               else:
-                    risposta2 = input("Hai inserito il numero ", numero_es89, ". Vuoi cambiarlo? Scegli S o N: ")
-                    if risposta2.lower() == "n": # inserire le opzioni: calcolo numeri pari, stampare numeri dispari, verificare se numero_es89 e. primo
-                         opzione_menu = int(input("Premi: 1 per sommare tutti i numeri pari compresi tra 0 ed il numero ", numero_es89, ", 2 per stampare tutti i numeri dispari compresi tra 0 ed il numero ", numero_es89, "3 per verificare se ", numero_es89, " e' un numero primo. "))
-                         if risposta2 == 1:
-                              for n in range(0, numero_es89, 2):
-                                   print(n=+1)
-                                   
-                         
-                    
-                         
-                         
+                elif numero_es89 == 9:
+                   print("Oh no! Addio!")
+                   break
+                else:
+                    risposta2 = input("Hai inserito il numero positivo. Vuoi cambiarlo? Scegli S o N: ")
+                    if risposta2.lower() == "n":
+                        # inserire le opzioni: calcolo numeri pari
+                        opzione_menu = int(input("Premi: 1 per sommare tutti i numeri pari compresi tra 0 ed il numero scelto, 2 per stampare tutti i numeri dispari compresi tra 0 ed il numero scelto, 3 per verificare se il numero scelto e' un numero primo, 4 per uscire dal programma. "))
+                        if opzione_menu == 1:
+                            for n in range(0, numero_es89+1, 2):
+                                somma_pari += n
+                                print(somma_pari) #in questa riga stampa tutte le somme passo dopo passo
+                            print(somma_pari) #mettendo il print fuori il ciclo for, stampa direttamente la somma finale
+                        # stampare numeri dispari,
+                        elif opzione_menu == 2:
+                            for n in range(1, numero_es89, 2):
+                                print(n)
+                        # verificare se numero_es89 e' primo
+                        elif opzione_menu == 3:
+                            if numero_es89 < 2:
+                                print("1 e 0 non sono considerati numeri primi.")
+                            else:
+                                num_primo = True
+                                for numero in range(2, numero_es89):
+                                    if numero_es89 % numero == 0:
+                                        num_primo = False
+                                        break
+                                if num_primo:
+                                    print(numero_es89, " e' un numero primo.")
+                                else:
+                                    print(numero_es89, " non e' un numero primo.")
+                        #inserire uscita dal programma
+                        elif opzione_menu == 4:
+                            print("Ciao!")
+                            break
+                        else:
+                            print("Scelta non valida")
+                            continue
                     else:
                          print("Hai scelto di cambiare il numero")
      else:
           print("Scelta non valida.")
-
-# ciclo While per inserire un numero. Controllo se il numero e' corretto ed entro nel menu' che ha 5 opzioni (if con 5 casi e un else)
-
-# Riempio uno alla volta i casi
-
-# Faccio i test
+          
