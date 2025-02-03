@@ -160,6 +160,15 @@ while True:
                                     print(numero_es89, " e' un numero primo.")
                                 else:
                                     print(numero_es89, " non e' un numero primo.")
+                                                #Altra possibilita' per i numeri primi e' creare un for che verifica se dividendo il numero per tutti i valori del range da sopra 2 al numero meno il numero target, e verifico il resto
+                        ### for x in range (2, numero_89_1, 1):
+                                #if numero_89 % x != 0:
+                                #   print("Il numero e' primo")
+                                #else:
+                                    #print("Il numero non e' primo")
+                                    #break
+                        #inserire uscita dal programma
+                        #
                         #inserire uscita dal programma
                         elif opzione_menu == 4:
                             print("Ciao!")
