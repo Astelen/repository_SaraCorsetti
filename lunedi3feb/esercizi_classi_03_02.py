@@ -247,3 +247,43 @@ diavolo.stampa_menu1()
 diavolo.stampa_menu2()
 diavolo.stampa_menu3()
 diavolo.stampa_menu4()
+
+
+
+
+##Dizionari
+studente = {
+    "nome": "Alice", 
+    "eta": 20, 
+    "sesso": "Femmina", 
+    4: "Mario"}
+print(studente)
+print(studente["nome"])
+print(studente[4])
+studente["nome"] = "Carlo"
+print(studente)
+
+
+#esercizio dizionari
+valore1 = int(input("Inserisci un numero"))
+valore2 = bool(input("So la piu' simpatica Vero o Falso?"))
+valore3 = input("Scrivi il tuo nome")
+lista_provadict = []
+lista_provadict.append(valore1) #oppure con un ciclo For
+lista_provadict.append(valore2)
+lista_provadict.append(valore3)
+
+dizionario_prova = {"tipididato": lista_provadict}
+
+print(dizionario_prova)
+
+
+
+##Prova unione lista chiavi e lista valori
+nuovo_diz = {}
+lista_chiavi = ["io", "tu"]
+lista_valori = [34, 67]
+for x, y in lista_chiavi, lista_valori: ##Come fondere due liste come chiavi e valori
+    nuovo_diz[x] = y
+    
+print(nuovo_diz)
