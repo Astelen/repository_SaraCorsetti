@@ -156,3 +156,88 @@ class Ristorante:
         
 diavolo = Ristorante("Il diavolo", "romana")
 diavolo.descrivi_ristorante()
+
+
+##esercizio slide 121, Ristorante CON LISTE
+
+class Ristorante:
+    apertura = False #In generale meglio mettere queste categorie nell'Init in modo da essere sicuri che vengano creati gli oggetti con le caratteristiche come le scelgo io
+    lista_piatti = []
+    lista_prezzi = []
+    def __init__(self, nome, tipo_cucina):
+        self.nome = nome
+        self.tipo_cucina = tipo_cucina
+    def descrivi_ristorante(self):
+        print("Il ristorante si chiama ", self.nome, " e la cucina e' ", self.tipo_cucina)
+    def stato_apertura(self, apertura):
+        self.apertura = apertura
+        if apertura == False:
+            print("Il ristorante e' chiuso")
+        else:
+            print("Il ristorante e' aperto")
+    def apri_ristorante(self, apertura):
+        if self.apertura == True:
+            print("Il ristorante e' gia' aperto!")
+        else:
+            self.apertura = True
+            print("Il ristorante e' aperto!")
+    def chiudi_ristorante(self, apertura):
+        if self.apertura == False:
+            print("Il ristorante e' gia' chiuso!")
+        else:
+            self.apertura = False
+            print("Il ristorante e' chiuso!")
+    #Fare lista prezzi e piatti
+    def aggiungi_menu(self, nome_piatto, prezzo_piatto):
+        self.nome_piatto = nome_piatto
+        self.prezzo_piatto = prezzo_piatto
+        self.lista_piatti.append(nome_piatto)
+        self.lista_prezzi.append(prezzo_piatto)
+    def rimuovi_menu(self, nome_piatto): #togliere tramite chiave ma metti che non si pou' togliere qualcosa al di sopra dell'elenco liste
+        if self.nome_piatto in self.lista_piatti:
+            indice = self.lista_piatti.index(nome_piatto)
+            self.lista_piatti.pop(indice)
+            self.lista_prezzi.pop(indice)
+        else:
+            print("Questo piatto non e' presente nella lista.")
+        ##Col ciclo for?
+        # for nome_piatto in self.lista_piatti:
+        #     x = 0
+        #     if self.sestesso.menupiatti # prendo l'indice
+        #     ##quando trovi nome del piatto
+        #     x += 1
+        #     self.lista_piatti.remove([])
+    def stampa_menu1(self): ## menu 1 con ciclo For unico, ma stampa i piatti tutti insieme ed i prezzi tutti insieme
+        print("Il menu' e': ")
+        for x, y in self.lista_piatti, self.lista_prezzi:
+            print(x, y)
+        #for x in self.lista_piatti:
+            #print(self.lista_piatti, self.lista_prezzi)
+    def stampa_menu2(self): ## menu 2 con due cicli For concatenati, stampa i prezzi doppi
+        print("Il menu' e': ")
+        for x in self.lista_piatti:
+            print(x)
+            for y in self.lista_prezzi:
+                print(y)
+    def stampa_menu3(self): ##Menu' 3, l'unica possibilita' funzionante bene
+        print("Il menu' e': ")
+        for piatto, prezzo in zip(self.lista_piatti, self.lista_prezzi):
+            print(piatto, prezzo)
+                
+diavolo = Ristorante("Il diavolo", "romana")
+diavolo.descrivi_ristorante()
+
+diavolo.aggiungi_menu("Carbonara", 10)
+diavolo.aggiungi_menu("Amatriciana", 9)
+diavolo.aggiungi_menu("Gricia", 9)
+
+print(diavolo.lista_piatti)
+print(diavolo.lista_prezzi)
+
+diavolo.rimuovi_menu("Gricia")
+print(diavolo.lista_piatti)
+print(diavolo.lista_prezzi)
+
+diavolo.stampa_menu1()
+diavolo.stampa_menu2()
+diavolo.stampa_menu3()
