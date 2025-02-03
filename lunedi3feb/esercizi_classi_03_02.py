@@ -160,7 +160,7 @@ diavolo.descrivi_ristorante()
 
 ##esercizio slide 121, Ristorante CON LISTE
 
-class Ristorante:
+lass Ristorante:
     apertura = False #In generale meglio mettere queste categorie nell'Init in modo da essere sicuri che vengano creati gli oggetti con le caratteristiche come le scelgo io
     lista_piatti = []
     lista_prezzi = []
@@ -213,16 +213,21 @@ class Ristorante:
             print(x, y)
         #for x in self.lista_piatti:
             #print(self.lista_piatti, self.lista_prezzi)
-    def stampa_menu2(self): ## menu 2 con due cicli For concatenati, stampa i prezzi doppi
+    def stampa_menu2(self): ## menu 2 con due cicli For concatenati
         print("Il menu' e': ")
         for x in self.lista_piatti:
             print(x)
-            for y in self.lista_prezzi:
-                print(y)
+            for x in self.lista_prezzi:
+                print(x)
+                break
     def stampa_menu3(self): ##Menu' 3, l'unica possibilita' funzionante bene
         print("Il menu' e': ")
         for piatto, prezzo in zip(self.lista_piatti, self.lista_prezzi):
             print(piatto, prezzo)
+    def stampa_menu4(self): ## Stampa tutti piatti e tutti prezzi insieme
+        print("Il menu' e': ")
+        for x, y in self.lista_piatti, self.lista_prezzi:
+            print(x, y)
                 
 diavolo = Ristorante("Il diavolo", "romana")
 diavolo.descrivi_ristorante()
@@ -241,3 +246,4 @@ print(diavolo.lista_prezzi)
 diavolo.stampa_menu1()
 diavolo.stampa_menu2()
 diavolo.stampa_menu3()
+diavolo.stampa_menu4()
