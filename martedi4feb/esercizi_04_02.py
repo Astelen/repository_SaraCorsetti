@@ -109,7 +109,7 @@ class Fabbrica:
     def stampa_inventario(self):
         for prodotto in self.lista_prodotto_generico:
             print(prodotto.descrizione()) #lo segna grigetto solo perche' potrebbero non esserci dei prodotti, e si sfascia
-        
+
         
 while True:
     scelta = int(input("Per inserire un prodotto generico, premi 1, per un prodotto di elettronica, premi 2, per un prodotto di abbigliamento, premi 3: "))
@@ -139,5 +139,33 @@ while True:
         print("Scelta non valida.")
 
  
+
+## Creazione libreria
+
+class Libro:
+    isbn = 0 #Isbn parte da 0
+    def __init__(self, titolo, autore, isbn):
+        self.titolo = titolo
+        self.autore = autore
+        self.isbn = isbn + 1 #assegno al primo libro isbn = 0 + 1
+        isbn += 1 #aumento di 1 tutti gli Isbn cosi' vado avanti col contatore
+    
+    def descrizione(self): #funzione descrizione libro con tutti e 3 gli attributi
+        print("Il titolo del libro e': ", self.titolo, ":, il suo autore e': ", self.autore, " ed il suo isbn e': ", self.isbn)
+        
+class Libreria:
+    diz_libri = {} # attributo catalogo
+    lista_libri = []
+    # metodo aggiungi_libro
+    def aggiungi_libro(self):
+        titolo = input("Inserisci il titolo del libro: ")
+        autore = input("Inserisci l'autore del libro: ")
+        aggiunta = Libro(titolo, autore)
+        self.lista_libri.append(aggiunta)
+        self.diz_libri[self.isbn] = self.lista_libri  ##In questo modo utilizzo il valore di Isbn come chiave, si puo' fare?
+    # metodo rimuovi_libro
+    # cerca per titolo
+    # mostra_catalogo
+    
 
 
