@@ -15,9 +15,11 @@ class Giocatore(MembroSquadra):
         MembroSquadra.__init__(self, nome, eta)
         self.ruolo = ruolo
         
-    def descrizione_giocatore(self):
-        MembroSquadra.descrizione_membro(self)
-        print("Il ruolo del giocatore e' :", self.ruolo)
+    def __str__ (self):
+        return f"Nome: {self.nome}, eta: {self.eta}, ruolo: {self.ruolo}."
+    #descrizione_giocatore(self):
+        # MembroSquadra.descrizione_membro(self)
+        # print("Il ruolo del giocatore e' :", self.ruolo)
         
     def gioca_partita(self):
         print("Sta per entrare in campo!")
@@ -28,9 +30,12 @@ class Allenatore(MembroSquadra):
         MembroSquadra.__init__(self, nome, eta)
         self.anni_esperienza = anni_esperienza
         
-    def descrizione_allenatore(self):
-        MembroSquadra.descrizione_membro(self)
-        print("Ha accumulato questi anni di esperienza come allenatore :", self.anni_esperienza)
+    def __str__ (self):
+        return f"Nome: {self.nome}, eta: {self.eta}, ruolo: {self.anni_esperienza}."
+    
+    # def descrizione_allenatore(self):
+    #     MembroSquadra.descrizione_membro(self)
+    #     print("Ha accumulato questi anni di esperienza come allenatore :", self.anni_esperienza)
         
     def dirige_allenamento(self):
         print("Allenamenti in corso, non disturbare.")
@@ -40,10 +45,13 @@ class Assistente(MembroSquadra):
     def __init__ (self, nome, eta, specializzazione):
         MembroSquadra.__init__(self, nome, eta)
         self.specializzazione = specializzazione
+
+    def __str__ (self):
+        return f"Nome: {self.nome}, eta: {self.eta}, specializzazione: {self.specializzazione}."
         
-    def descrizione_assistente(self):
-        MembroSquadra.descrizione_membro(self)
-        print("E' specializzato come :", self.specializzazione)
+    # def descrizione_assistente(self):
+    #     MembroSquadra.descrizione_membro(self)
+    #     print("E' specializzato come :", self.specializzazione)
         
     def supporto_allenamento(self):
         print("Supporta l'allenamento come ", self.specializzazione)
@@ -78,8 +86,15 @@ class Squadra:
         aggiunta_assistente = Giocatore(nome, eta, specializzazione) #creo giocatore dentro il metodo prima di aggiungerlo alla lista
         self.lista_assistenti.append(aggiunta_assistente)
     
-    def __str__(self): #stampa elenco squadre
-        return f"Squadra: {self.nome_squadra}, Elenco allenatori: {self.lista_allenatori}, \n elenco giocatori: {self.lista_giocatori}, \n elenco assistenti: {self.lista_assistenti}" 
+    def __str__(self): #stampa oggetto
+        print("Squadra: ", self.nome_squadra)
+        for x in self.lista_giocatori:
+            print("Lista giocatori ", x)
+        for y in self.lista_allenatori:
+            print("Lista allenatori ", y)
+        for z in self.lista_assistenti:
+            print("Lista assistenti ", z)
+        return ""
     
 squadra1 = Squadra("Roma")
 
@@ -100,3 +115,96 @@ while True:
             break
     else:
         print("Scelta non valida")
+
+print(squadra1)
+
+
+
+## Esercizio Personale cucina
+
+class PersonaleCucina:
+    def __init__(self, nome, eta):
+        self.nome = nome
+        self.eta = eta
+    def lavora(self):
+        print("Lavoro specifico")
+
+class Chef(PersonaleCucina):
+    def __init__(self, nome, eta, tipo_chef):
+        super().__init__(self, nome, eta)
+        self.tipo_chef = tipo_chef
+    def lavora(self):
+        print("Lavoro chef")
+
+class SousChef(PersonaleCucina):
+    def __init__(self, nome, eta, tipo_souschef):
+        super().__init__(self, nome, eta)
+        self.tipo_souschef = tipo_souschef
+    def lavora(self):
+        print("Lavoro linea")
+
+class CuocoLinea(PersonaleCucina):
+    def __init__(self, nome, eta, tipo_linea):
+        super().__init__(self, nome, eta)
+        self.tipo_linea = tipo_linea
+    def lavora(self):
+        print("Lavoro linea")
+
+        
+cuoco1 = CuocoLinea("Mario", 32, "xd")
+
+
+
+# es. Conto Bancario
+class ContoBancario:
+    def __init__(self, titolare, saldo_iniziale):
+        
+        if titolare != "":
+            self.__titolare = titolare
+        else:
+            self.__titolare = "Sconosciuto"
+        
+        if saldo_iniziale > 0:
+            self.__saldo = saldo_iniziale
+        else:
+            self.__saldo = 0
+    
+    #metodo per prelievi e depositi        
+    def rinnovo_saldo(self, importo):
+        nuovo_saldo = self.__saldo + importo
+        if nuovo_saldo >=0:
+            self.__saldo = nuovo_saldo
+        else:
+            print("Prelievo non disponibile")
+    
+    #stampa saldo
+    def visualizza_saldo(self):
+        return self.__saldo
+    
+    def visualizza_titolare(self):
+        return self.__titolare
+    
+    def set_titolare(self, nuovo_titolare):
+        if nuovo_titolare != "":
+            self.__titolare = nuovo_titolare
+    
+contobancario1 = ContoBancario("Antonio", 1000)  
+contobancario1.visualizza_saldo()
+contobancario1.rinnovo_saldo(2000)
+print("Saldo dopo deposito: ", contobancario1.visualizza_saldo())
+print(contobancario1.visualizza_titolare())
+contobancario1.set_titolare("Valerio")
+print(contobancario1.visualizza_titolare())
+
+class Banca:
+    def __init__(self, nome):
+        self.nome = nome
+        self__conti = []
+        
+    def mostra_conti(self):
+        if not self.__conti:
+            print("Non ci sono conti")
+            return ""
+        for conto in self.__conti:
+            print("Conto di ", conto.get_titolare(), "con saldo ", conto.visualizza)
+            
