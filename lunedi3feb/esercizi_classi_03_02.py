@@ -160,7 +160,7 @@ diavolo.descrivi_ristorante()
 
 ##esercizio slide 121, Ristorante CON LISTE
 
-lass Ristorante:
+class Ristorante:
     apertura = False #In generale meglio mettere queste categorie nell'Init in modo da essere sicuri che vengano creati gli oggetti con le caratteristiche come le scelgo io
     lista_piatti = []
     lista_prezzi = []

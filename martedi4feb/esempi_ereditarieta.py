@@ -128,7 +128,7 @@ class Computer(Processore, Ram):
         if self.linguaggio_computer == "eng":
             print("La tastiera ha la formattazione inglese")
         elif self.linguaggio_computer == "it":
-            print("La tastiera ha la formattazione inglese ")
+            print("La tastiera ha la formattazione italiana")
         else:
             print("Formattazione non riconosciuta o inserimento non valido.")
             
@@ -136,7 +136,11 @@ class Computer(Processore, Ram):
         Processore.stampa_info_processore(self)
         Ram.stampa_info_ram(self)
         
+    def __str__(self): ##Questo metodo va solo con f
+        return f"Caratteristiche: {self.velocita}, {self.tipo_processore}, {self.linguaggio_computer}" 
+        
             
 computer1 = Computer("Intel", "Super", "100", "eng")
 computer1.stampa_informazioni()
 computer1.tipo_tastiera()
+print(computer1)
