@@ -155,7 +155,7 @@ cuoco1 = CuocoLinea("Mario", 32, "xd")
 
 
 
-# es. Conto Bancario
+# es. Conto Bancario slide 153
 class ContoBancario:
     def __init__(self, titolare, saldo_iniziale):
         
@@ -178,10 +178,10 @@ class ContoBancario:
             print("Prelievo non disponibile")
     
     #stampa saldo
-    def visualizza_saldo(self):
-        return self.__saldo
+    # def get_saldo(self):
+    #     return self.__saldo
     
-    def visualizza_titolare(self):
+    def get_titolare(self):
         return self.__titolare
     
     def set_titolare(self, nuovo_titolare):
@@ -191,20 +191,8 @@ class ContoBancario:
 contobancario1 = ContoBancario("Antonio", 1000)  
 contobancario1.visualizza_saldo()
 contobancario1.rinnovo_saldo(2000)
-print("Saldo dopo deposito: ", contobancario1.visualizza_saldo())
-print(contobancario1.visualizza_titolare())
+print("Saldo dopo deposito: ", contobancario1.get_saldo())
+print(contobancario1.get_titolare())
 contobancario1.set_titolare("Valerio")
-print(contobancario1.visualizza_titolare())
-
-class Banca:
-    def __init__(self, nome):
-        self.nome = nome
-        self__conti = []
-        
-    def mostra_conti(self):
-        if not self.__conti:
-            print("Non ci sono conti")
-            return ""
-        for conto in self.__conti:
-            print("Conto di ", conto.get_titolare(), "con saldo ", conto.visualizza)
+print(contobancario1.get_titolare())
             

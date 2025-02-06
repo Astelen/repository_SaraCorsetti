@@ -1,3 +1,27 @@
+
+class MiaClasse:
+    def __init__(self):
+        self.__variabile_privata = "Sono privata"
+        
+        def __metodo_privato(self):
+            return "Questo e' un metodo privato"
+        
+        def __pippo_privato(self):
+            print("Ciao")
+            
+        def __pippo_privato(self):
+            print(__metodo_privato)
+        
+obj = MiaClasse()
+# se stampo print(obj.__variabile_privata) ottengo un errore!! AttributeError
+print(obj._MiaClasse__variabile_privata) # questo funziona MA NON SI FA.
+
+
+
+#####
+
+##esercizio scuola slide 154
+
 class Persona:
     def __init__(self, nome, eta):
         self.__nome = nome
@@ -18,8 +42,7 @@ class Persona:
             self.__eta = nuova_eta
     
     def presentazione(self):
-        print(self.__nome, self.__eta)
-    
+        print("Il nome e': ", self.__nome, ", l'eta' e': ", self.__eta)
 
 class Studente(Persona):     #NB con get posso evitare di fare l'init! Basta che faccio def get.nome e def get.eta INVECE del costruttore.
         #In questo caso devo mettere per forza il setter per modificarlo. In questo caso posso mettere privati
@@ -45,7 +68,16 @@ class Studente(Persona):     #NB con get posso evitare di fare l'init! Basta che
     def presentazione(self):
         print("Il nome e': ", self.__nome, ", l'eta' e': ", self.__eta, ", la media dei voti e': ", self.calcola_media())
         
+class Professore(Persona):
+    def __init__(self, nome, eta, materia):
+        super().__init__(nome, eta)
+        self.__materia = materia
         
+    def presentazione(self):
+        print("Il nome e': ", self.__nome, ", l'eta' e': ", self.__eta, ", la materia di ineagnamento e': ", self.__materia)
+        
+        
+     
 persona1 = Persona("Marco", 34)
 print(persona1.get_nome())
 print(persona1.get_eta())
@@ -62,4 +94,3 @@ print(studente1.get_eta())
 print(studente2.get_nome())
 print(studente2.get_eta())
 studente2.calcola_media()
-
