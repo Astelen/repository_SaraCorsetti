@@ -53,6 +53,10 @@ class ImpiegatoProvvigione(Impiegato):
     def __str__(self):
         return f"Ecco i dati dell'impiegato: {self.nome}, {self.cognome}, {self.calcola_stipendio()}"
     
+    #Funzione suggerita da Mirko, non so perche'.
+    #def paga_soldi(umano): #metto un parametro
+    #    umano.calcola_stipendio() #devo riportare l'umano per far partire la funzione
+    
 imp1 = ImpiegatoFisso("Andrea", "De Santis", 100)
 print(imp1.calcola_stipendio())
 print(imp1.calcola_stipendio())
