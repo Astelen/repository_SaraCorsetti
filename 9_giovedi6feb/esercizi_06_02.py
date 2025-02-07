@@ -202,5 +202,8 @@ class GestionePagamento:
 carta1 = CartaDiCredito()
 gestione1 = GestionePagamento(carta1)  #creo istanza GestionePagamento chiamata gestione1, il parametro assegno carta1 oggetto di metodo_di_pagamento
 gestione1.esegui_pagamento(200)
+
+
+
     
         
