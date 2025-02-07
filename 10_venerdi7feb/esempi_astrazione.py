@@ -1,3 +1,24 @@
+
+from abc import ABC, abstractmethod ##Obbligatorio, serve ad importare la funzione
+
+class Animale(ABC):
+    @abstractmethod
+    def muovi(self):
+        pass
+    
+class Cane(Animale):
+    def muovi(self):
+        print("Corro)")
+
+class Pesce(Animale):
+    def muovi(self):
+        print("Nuoto")
+
+
+
+
+###Azienda per gestire gli impiegati
+
 from abc import ABC, abstractmethod
 
 class Impiegato(ABC):
@@ -41,4 +62,3 @@ print(imp3.calcola_stipendio())
 
 print(imp1)
 print(imp3)
-
